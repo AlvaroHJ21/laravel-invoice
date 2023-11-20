@@ -83,7 +83,7 @@
             <cac:PartyIdentification>
                 <cbc:ID schemeID="{{ $client->entity_type_code }}" schemeName="Documento de Identidad"
                     schemeAgencyName="PE:SUNAT" schemeURI="urn:pe:gob:sunat:cpe:see:gem:catalogos:catalogo06">
-                    {{ $entity->document_number }}
+                    {{ $client->document_number }}
                 </cbc:ID>
             </cac:PartyIdentification>
             <cac:PartyLegalEntity>
@@ -149,7 +149,7 @@
                 {{ number_format($invoice->total_taxable * (1 - $invoice->global_discount_percentage), 2, '.', '') }}
             </cbc:TaxableAmount>
             <cbc:TaxAmount currencyID="{{ $invoice->currency_code }}">
-                {{ number_format($total_igv * (1 - $global_discount_percentage), 2, '.', '') }}
+                {{ number_format($invoice->total_igv * (1 - $invoice->global_discount_percentage), 2, '.', '') }}
             </cbc:TaxAmount>
             <cac:TaxCategory>
                 <cac:TaxScheme>
